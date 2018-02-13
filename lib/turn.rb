@@ -20,19 +20,20 @@ end
 
 def valid_move? (board, index)
   def position_taken?(board, index)
-   board[index] == "X" || board[index] == "O"
+    if board[index] == "X" || board[index] == "O"
+      return false
+    end
+
+    if board[index] == " " || board[index] == ""
+      return true
+    end
+
+    if board[index] == nil
+      return false
+    end
   end
 
-  if board[index] == " " || board[index] == ""
-    return true
-  end
-
-  if board[index] = "nil"
-    return false
-  end
-  end
-
-if !position_taken?(board,index) && index.between?(0, 8)
+if position_taken?(board,index) && index.between?(0, 8)
   return true
 end
 end
